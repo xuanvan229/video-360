@@ -11,7 +11,7 @@
        height: 100vh;
      }
      .panolens-container{
-       height: 100vh;
+       height: 100vh !important;
      }
      body {
        margin: 0;
@@ -30,10 +30,16 @@
 
  
   <script>
+
+window.onload = function() {
   var panorama, viewer;
-  panorama = new PANOLENS.VideoPanorama( 'samples/video.MP4', { autoplay: true } );
+  panorama = new PANOLENS.VideoPanorama( 'samples/video_dancer.MP4', { autoplay: true } );
   viewer = new PANOLENS.Viewer();
   viewer.add( panorama );
+  // viewer.getControl().rotateLeft(2);
+  viewer.getControl().update();
+  viewer.camera.position.set(2000, 2000, 000);
+};
   </script>
 </body>
 </html>
